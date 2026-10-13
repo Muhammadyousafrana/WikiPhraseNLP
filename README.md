@@ -1,4 +1,5 @@
 # WikiPhraseNLP
+[![CI](https://github.com/Muhammadyousafrana/WikiPhraseNLP/actions/workflows/main.yml/badge.svg)](https://github.com/Muhammadyousafrana/WikiPhraseNLP/actions/workflows/main.yml)
 
 ## Overview
 
