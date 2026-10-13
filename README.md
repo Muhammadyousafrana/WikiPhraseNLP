@@ -1,16 +1,18 @@
-# NLP_project_with_python_Fire
+# WikiPhraseNLP
 
 ## Overview
 
-This project demonstrates the use of **Natural Language Processing (NLP)** techniques by leveraging popular Python libraries such as `wikipedia`, `textblob`, and `fire`. The main functionality is to extract and analyze noun phrases from Wikipedia articles via a simple command-line interface, orchestrated using the `fire` library.
+WikiPhraseNLP is a lightweight Python project for extracting meaningful noun phrases from Wikipedia article summaries using NLP tools such as `wikipedia`, `TextBlob`, and `fire`. It provides a simple command-line interface for quickly analyzing a topic and retrieving key phrases from its summary.
+
+The project is designed to demonstrate how to combine data retrieval, text processing, and a Python CLI into a small but practical NLP workflow.
 
 ## Features
 
-- **Wikipedia Search & Summary**: Search for Wikipedia articles and fetch their summaries.
-- **Noun Phrase Extraction**: Use TextBlob to extract meaningful noun phrases from Wikipedia article summaries.
-- **Command-Line Interface**: Instantly access the main NLP functionality from the terminal using Python Fire.
-- **Modular Codebase**: Core logic is separated in the `nlplogic` package for easy reuse and testing.
-- **Testing, Linting, and Formatting**: Includes Makefile targets for automated testing, code linting, and formatting.
+- Wikipedia article lookup and summary retrieval
+- Noun phrase extraction using TextBlob
+- Simple CLI powered by Python Fire
+- Modular code structure for reusable NLP logic
+- Test and quality automation with Makefile targets
 
 ## Project Structure
 
@@ -18,9 +20,9 @@ This project demonstrates the use of **Natural Language Processing (NLP)** techn
 .
 ├── nlplogic/
 │   ├── __init__.py
-│   └── corenlp.py         # Core NLP logic (Wikipedia search, summary, phrase extraction)
-├── wikipedia_phrases.py   # CLI entry point using fire
-├── test_corenlp.py        # Test for core functionality
+│   └── corenlp.py         # Core NLP logic: search, summary, phrase extraction
+├── wikipedia_phrases.py   # CLI entry point using Fire
+├── test_corenlp.py        # Core functionality tests
 ├── requirements.txt       # Python dependencies
 ├── Makefile               # Automation for install, test, lint, and format
 ├── .gitignore
@@ -29,40 +31,37 @@ This project demonstrates the use of **Natural Language Processing (NLP)** techn
 
 ## Installation
 
-1. **Clone the repository:**
+1. Clone the repository:
    ```bash
    git clone https://github.com/Muhammadyousafrana/NLP_project_with_python_Fire.git
    cd NLP_project_with_python_Fire
    ```
 
-2. **Install dependencies and required corpora:**
+2. Install dependencies and required corpora:
    ```bash
    make install
    ```
-   This will:
-   - Upgrade pip
-   - Install Python dependencies from `requirements.txt`
-   - Download required text corpora for TextBlob
+
+   This step will:
+   - upgrade `pip`
+   - install required Python packages from `requirements.txt`
+   - download the text corpora needed by TextBlob
 
 ## Usage
 
 ### Command-Line Interface
 
-Extract noun phrases from a Wikipedia article directly from the command line:
+Extract noun phrases from a Wikipedia article directly from the terminal:
 
-```bash
-python wikipedia_phrases.py "<Wikipedia Search Term>"
-```
-
-**Example:**
 ```bash
 python wikipedia_phrases.py "Microsoft"
 ```
-This will output the noun phrases found in the summary of the "Microsoft" Wikipedia article.
+
+This command fetches the summary for the requested article and prints the noun phrases found in it.
 
 ### Programmatic Usage
 
-You can also import and use the core logic in your own Python scripts:
+You can also use the core logic in your own Python scripts:
 
 ```python
 from nlplogic.corenlp import get_phrases
@@ -73,47 +72,50 @@ print(phrases)
 
 ## Testing
 
-Run tests using:
+Run tests with:
 
 ```bash
 make test
 ```
-or directly via pytest:
+
+Or directly with pytest:
+
 ```bash
 pytest -vv --cov=nlplogic test_corenlp.py
 ```
 
 ## Code Quality
 
-- **Lint:** `make lint` (uses pylint)
-- **Format:** `make format` (uses black)
+- Lint: `make lint`
+- Format: `make format`
 
 ## Dependencies
 
-Main dependencies (see `requirements.txt` for full list):
+Main dependencies include:
 
 - textblob
 - wikipedia
 - nltk
 - pattern
 - fire
-- pytest, pytest-cov (for testing)
-- black, pylint, click (for code quality and CLI)
+- pytest, pytest-cov
+- black, pylint, click
 
-Install all dependencies with:
+Install everything with:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Example Code
 
-**nlplogic/corenlp.py** contains functions for:
-- Searching Wikipedia
-- Fetching article summaries
-- Extracting noun phrases using TextBlob
+The main NLP logic lives in `nlplogic/corenlp.py` and includes functions for:
+- searching Wikipedia
+- fetching article summaries
+- extracting noun phrases with TextBlob
 
-**wikipedia_phrases.py** provides a CLI using Fire, exposing `get_phrases` for quick access.
+The script `wikipedia_phrases.py` exposes `get_phrases` through a Fire-based CLI.
 
 ## Contributing
 
-Feel free to open issues or pull requests if you'd like to contribute or suggest improvements!
+Feel free to open issues or submit pull requests if you would like to improve the project or suggest new features.
